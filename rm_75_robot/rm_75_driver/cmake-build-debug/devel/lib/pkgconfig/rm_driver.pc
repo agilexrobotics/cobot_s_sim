@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/ws_rm_75_robot/src/rm_75_robot/rm_driver/cmake-build-debug/devel
+
+Name: rm_driver
+Description: Description of rm_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

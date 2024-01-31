@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: rm_driver
+Description: Description of rm_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
