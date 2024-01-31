@@ -1,5 +1,5 @@
 # cobot s sim 
-
+请从release下载最新的cobot_s_sim.zip
 ## launch moveit rviz sim
 
 ``` bash
