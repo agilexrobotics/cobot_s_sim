@@ -1,0 +1,47 @@
+controller_list:
+ - name: rm_75
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+   joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      - joint7
+initial:  # Define initial robot poses.
+  - group: arm
+    pose: zero
+
+# /arm/gazebo_ros_control:   
+#     pid_gains:
+#       joint1:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint2:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint3:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint4:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint5:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint6:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0
+#       joint7:
+#         p: 100.0
+#         i: 0.01 
+#         d: 10.0

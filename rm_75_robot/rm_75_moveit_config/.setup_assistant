@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: rm_75_description
+    relative_path: urdf/rm_75_bottom.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rm_75.srdf
+  CONFIG:
+    author_name: Gu Bishan
+    author_email: gubishan@realman-robot.com
+    generated_timestamp: 1631711891

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ubuntu/ws_rm_75_robot/src/rm_75_robot/rm_driver/cmake-build-debug/devel/setup.sh
