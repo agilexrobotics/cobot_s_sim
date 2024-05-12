@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<robot name="limo_gazebo" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:macro name="gazebo_laser" params="frame_prefix">
+        <gazebo reference="${frame_prefix}">
+            <sensor type="ray" name="laser_sensor">
+              <pose>0 0 0 0 0 0</pose>
+              <visualize>true</visualize>
+              <update_rate>8</update_rate>
+              <ray>
+                <scan>
+                  <horizontal>
+                    <samples>720</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-2.09439504</min_angle>
+                    <max_angle>2.09439504</max_angle>
+                  </horizontal>
+                </scan>
+                <range>
+                  <min>0.05</min>
+                  <max>8.0</max>
+                  <resolution>0.01</resolution>
+                </range>
+                <noise>
+                  <type>gaussian</type>
+                  <mean>0.0</mean>
+                  <stddev>0.01</stddev>
+                </noise>
+              </ray>
+              <plugin name="gazebo_ros_laser_sensor" filename="libgazebo_ros_laser.so">
+                <topicName>/scan</topicName>
+                <frameName>${frame_prefix}</frameName>
+              </plugin>
+            </sensor>
+          </gazebo>
+    </xacro:macro>
+
+    <xacro:macro name="gazebo_depth_camera" params="frame_prefix">
+        <gazebo reference="${frame_prefix}">
+          <sensor name="sensor_camera" type="depth">
+            <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>10.0</update_rate>
+            <camera name="head">
+              <horizontal_fov>1.3962634</horizontal_fov>
+              <image>
+                  <width>1280</width>
+                  <height>720</height>
+                  <format>R8G8B8</format>
+              </image>
+              <clip>
+                  <near>0.02</near>
+                  <far>300</far>
+              </clip>
+            </camera>
+
+            <plugin name="gazebo_ros_depth_camera_sensor" filename="libgazebo_ros_openni_kinect.so">
+              <baseline>0.2</baseline>
+              <alwaysOn>true</alwaysOn>
+              <!-- Keep this zero, update_rate in the parent <sensor> tag
+                will control the frame rate. -->
+              <updateRate>0.0</updateRate>
+              <cameraName>${frame_prefix}/camera_ir</cameraName>
+              <imageTopicName>/${frame_prefix}/color/image_raw</imageTopicName>
+              <cameraInfoTopicName>/${frame_prefix}/color/camera_info</cameraInfoTopicName>
+              <depthImageTopicName>/${frame_prefix}/depth/image_raw</depthImageTopicName>
+              <depthImageCameraInfoTopicName>/${frame_prefix}/depth/camera_info</depthImageCameraInfoTopicName>
+              <pointCloudTopicName>/${frame_prefix}/depth/points</pointCloudTopicName>
+              <frameName>${frame_prefix}</frameName>
+              <cameraname>${frame_prefix}</cameraname>
+              
+              <pointCloudCutoff>0.5</pointCloudCutoff>
+              <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+              <distortionK1>0</distortionK1>
+              <distortionK2>0</distortionK2>
+              <distortionK3>0</distortionK3>
+              <distortionT1>0</distortionT1>
+              <distortionT2>0</distortionT2>
+              <CxPrime>0</CxPrime>
+              <Cx>0</Cx>
+              <Cy>0</Cy>
+              <focalLength>0</focalLength>
+              <hackBaseline>0</hackBaseline>
+            </plugin>
+        </sensor>
+          </gazebo>
+    </xacro:macro>
+    <xacro:macro name="gazebo_rslidar" params="frame_prefix">
+    <gazebo reference="${frame_prefix}">
+        <sensor type="ray" name="velodyne-VLP16">
+          <pose>0 0 0 0 0 0</pose>
+          <visualize>false</visualize>
+          <update_rate>10</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>440</samples>
+                <resolution>1</resolution>
+                <min_angle>0.9</min_angle>
+                <max_angle>130</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>16</samples>
+                <resolution>1</resolution>
+                <min_angle>-${15.0*M_PI/180.0}</min_angle>
+                <max_angle> ${15.0*M_PI/180.0}</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.3</min>
+              <max>130</max>
+              <resolution>0.001</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.0</stddev>
+            </noise>
+          </ray>
+          <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
+            <topicName>/rslidar_points</topicName>
+            <frameName>${frame_prefix}</frameName>
+            <min_range>0.9</min_range>
+            <max_range>130</max_range>
+            <gaussianNoise>0.008</gaussianNoise>
+          </plugin>
+        </sensor>
+    </gazebo>
+    </xacro:macro>
+
+
+</robot>

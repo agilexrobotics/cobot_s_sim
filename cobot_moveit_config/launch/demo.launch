@@ -35,9 +35,9 @@
     </node>
     <!-- If desired, a GUI version is available allowing to move the simulated robot around manually
          This corresponds to moving around the real robot without the use of MoveIt. -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)">
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)">
       <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
-    </node>
+    </node> -->
 
     <!-- Given the published joint states, publish tf for the robot links -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
@@ -60,7 +60,7 @@
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
-  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
 
   <!-- If database loading was enabled, start mongodb as well -->
   <include file="$(dirname)/default_warehouse_db.launch" if="$(arg db)">

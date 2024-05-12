@@ -6,8 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 270
+    Tree Height: 597
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -96,6 +98,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        ag95_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ag95_body:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         arm_base:
           Alpha: 1
           Show Axes: false
@@ -140,6 +152,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        front_lidar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         hand_camera:
           Alpha: 1
           Show Axes: false
@@ -155,7 +172,47 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         neck_lidar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_outer_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -180,11 +237,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        tool_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -192,12 +244,82 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        Link1:
+          Value: false
+        Link2:
+          Value: false
+        Link3:
+          Value: false
+        Link4:
+          Value: false
+        Link5:
+          Value: false
+        Link6:
+          Value: false
+        Link7:
+          Value: false
+        ag95_base_link:
+          Value: false
+        ag95_body:
+          Value: false
+        arm_base:
+          Value: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: false
+        box:
+          Value: false
+        display_Link:
+          Value: false
+        fl_steering_wheel_link:
+          Value: false
+        fl_wheel_link:
+          Value: false
+        fr_steering_wheel_link:
+          Value: false
+        fr_wheel_link:
+          Value: false
+        front_lidar:
+          Value: false
+        hand_camera:
+          Value: true
+        head_Link:
+          Value: false
+        head_camera:
+          Value: true
+        left_finger:
+          Value: false
+        left_finger_pad:
+          Value: false
+        left_inner_knuckle:
+          Value: false
+        left_outer_knuckle:
+          Value: false
+        neck_lidar:
+          Value: false
+        right_finger:
+          Value: false
+        right_finger_pad:
+          Value: false
+        right_inner_knuckle:
+          Value: false
+        right_outer_knuckle:
+          Value: false
+        rl_steering_wheel_link:
+          Value: false
+        rl_wheel_link:
+          Value: false
+        rr_steering_wheel_link:
+          Value: false
+        rr_wheel_link:
+          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -205,9 +327,57 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        base_footprint:
+          base_link:
+            arm_base:
+              Link7:
+                Link1:
+                  Link2:
+                    Link3:
+                      Link4:
+                        Link5:
+                          Link6:
+                            ag95_base_link:
+                              ag95_body:
+                                left_inner_knuckle:
+                                  {}
+                                left_outer_knuckle:
+                                  left_finger:
+                                    left_finger_pad:
+                                      {}
+                                right_inner_knuckle:
+                                  {}
+                                right_outer_knuckle:
+                                  right_finger:
+                                    right_finger_pad:
+                                      {}
+                            hand_camera:
+                              {}
+            box:
+              {}
+            fl_steering_wheel_link:
+              fl_wheel_link:
+                {}
+            fr_steering_wheel_link:
+              fr_wheel_link:
+                {}
+            front_lidar:
+              {}
+            head_Link:
+              display_Link:
+                {}
+              head_camera:
+                {}
+            neck_lidar:
+              {}
+            rl_steering_wheel_link:
+              rl_wheel_link:
+                {}
+            rr_steering_wheel_link:
+              rr_wheel_link:
+                {}
       Update Interval: 0
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -236,7 +406,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 2.7850098609924316
+      Distance: 2.785706043243408
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -244,25 +414,25 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.0946856141090393
-        Y: 0.11131477355957031
-        Z: 0
+        X: -0.07331737875938416
+        Y: -0.42184901237487793
+        Z: 3.5762786865234375e-07
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5203981995582581
+      Pitch: 0.3053983747959137
       Target Frame: <Fixed Frame>
-      Yaw: 2.140397548675537
+      Yaw: 0.14039677381515503
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: true
-  Height: 2044
-  Hide Left Dock: true
+    collapsed: false
+  Height: 986
+  Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd000000040000000000000156000002b0fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b000000b000fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000003d000002b00000018200fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002b00000013200fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000077d0000005efc0100000002fb0000000800540069006d006501000000000000077d000006dc00fffffffb0000000800540069006d006501000000000000045000000000000000000000077d000006f600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001560000031cfc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d0000031c000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002b0000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006900000005efc0100000002fb0000000800540069006d0065010000000000000690000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000005340000031c00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -271,6 +441,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 1917
+  Width: 1680
   X: 72
-  Y: 0
+  Y: 27

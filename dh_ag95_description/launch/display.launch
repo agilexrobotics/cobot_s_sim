@@ -1,0 +1,12 @@
+<launch>
+  <arg name="model" default="$(find dh_ag95_description)/urdf/ag95.xacro" />
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find dh_ag95_description)/launch/urdf.rviz" />
+  <arg name="urdf_path" default="$(find dh_ag95_description)/urdf/ag95.xacro" />
+
+  <!-- send robot urdf to param server -->
+  <param name="robot_description" command="xacro '$(arg urdf_path)'" />
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true" />
+</launch>

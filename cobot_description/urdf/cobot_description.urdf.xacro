@@ -6,7 +6,7 @@
   <xacro:include filename="$(find rm_75_description)/urdf/rm_75.transmission.xacro"/>
   <xacro:include filename="$(find rm_75_description)/urdf/rm_75.gazebo.xacro"/>
 
-  <xacro:include filename="$(find dh_robotics_ag95_description)/urdf/dh_robotics_ag95_gripper.urdf.xacro" />
+  <!-- <xacro:include filename="$(find dh_robotics_ag95_description)/urdf/dh_robotics_ag95_gripper.urdf.xacro" /> -->
 
   <xacro:include filename="$(find ranger_mini_v2_gazebo)/xacro/ranger_mini_gazebo_b.xacro"/>
 

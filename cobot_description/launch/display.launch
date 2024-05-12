@@ -5,7 +5,7 @@
     name="robot_description"
     textfile="$(find cobot_description)/urdf/cobot_description.urdf" /> -->
   <param name="robot_description" 
-  command="$(find xacro)/xacro $(find cobot_description)/urdf/cobot_description.urdf.xacro" />
+  command="$(find xacro)/xacro $(find cobot_description)/urdf/cobot_description_nogripper.urdf.xacro" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"

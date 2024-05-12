@@ -7,8 +7,10 @@
   <xacro:include filename="$(find rm_75_description)/urdf/rm_75.gazebo.xacro"/>
 
   <!-- <xacro:include filename="$(find dh_robotics_ag95_description)/urdf/dh_robotics_ag95_gripper.urdf.xacro" /> -->
+  <xacro:include filename="$(find dh_ag95_description)/urdf/ag95_macro.xacro" />
 
   <xacro:include filename="$(find ranger_mini_v2_gazebo)/xacro/ranger_mini_gazebo_b.xacro"/>
+  <xacro:include filename="$(find cobot_description)/urdf/gazebo.gazebo"/>
 
   <link
     name="base_footprint">
@@ -61,6 +63,61 @@
   </joint>
 
   <link
+    name="front_lidar">
+    <inertial>
+      <origin
+        xyz="-0.00016986 -2.2612E-10 0.018642"
+        rpy="0 0 0" />
+      <mass
+        value="0.15478" />
+      <inertia
+        ixx="6.9567E-05"
+        ixy="-1.7298E-12"
+        ixz="-4.6381E-07"
+        iyy="7.1065E-05"
+        iyz="-5.4415E-13"
+        izz="9.8843E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_description/meshes/front_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cobot_description/meshes/front_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.315 0 0.214"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <link
     name="arm_base">
     <inertial>
       <origin
@@ -104,8 +161,8 @@
     name="arm_base_joint"
     type="fixed">
     <origin
-      xyz="-0.101 0 0.16"
-      rpy="0 0 3.14"/>
+      xyz="0.101 0 0.16"
+      rpy="0 0 0"/>
     <parent
       link="base_link" />
     <child
@@ -143,7 +200,7 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <!-- <collision>
+    <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
@@ -151,14 +208,14 @@
         <mesh
           filename="package://cobot_description/meshes/Link7.STL" />
       </geometry>
-    </collision> -->
+    </collision>
   </link>
   <joint
     name="joint7"
     type="revolute">
     <origin
       xyz="0 0 0.4878"
-      rpy="3.1416 0 1.5708" />
+      rpy="3.1416 0 3.14" />
     <parent
       link="arm_base" />
     <child
@@ -526,7 +583,7 @@
       velocity="1" />
 	  <dynamics damping="50" friction="1"/>
   </joint>
-  <link
+  <!-- <link
     name="tool_link">
     <inertial>
       <origin
@@ -570,7 +627,7 @@
     <origin xyz="0 0 0.03103" rpy="0 0 -2.618" />
     <parent link="Link6" />
     <child link="tool_link" />
-  </joint>
+  </joint> -->
   <!-- <joint
     name="hand_joint"
     type="fixed">
@@ -606,8 +663,9 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/hand_camera.STL" />
+        <!-- <mesh
+          filename="package://cobot_description/meshes/hand_camera.STL" /> -->
+          <box size="0.05 0.02 0.02"/>
       </geometry>
       <material
         name="">
@@ -618,26 +676,42 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 1.57 0" />
       <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/hand_camera.STL" />
+        <!-- <mesh
+          filename="package://cobot_description/meshes/hand_camera.STL" /> -->
+        <box size="0.05 0.02 0.02"/>
       </geometry>
     </collision>
   </link>
-  <joint
+  <!-- <joint
     name="hand_camera_joint"
     type="fixed">
     <origin
-      xyz="-0.049074 0.048515 0.06645"
-      rpy="0.066568 0 -2.3363" />
+      xyz="-0.05 0.05 0 "
+      rpy="0 -1.57 2.618" />
     <parent
       link="tool_link" />
     <child
       link="hand_camera" />
     <axis
       xyz="0 0 0" />
+  </joint> -->
+
+  <joint
+    name="hand_camera_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.05 0.0"
+      rpy="-1.57 -1.57 0" />
+    <parent
+      link="Link6" />
+    <child
+      link="hand_camera" />
+    <axis
+      xyz="0 0 0" />
   </joint>
+
   <link
     name="neck_lidar">
     <inertial>
@@ -673,8 +747,9 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/neck_lidar.STL" />
+        <!-- <mesh
+          filename="package://cobot_description/meshes/neck_lidar.STL" /> -->
+          <cylinder radius="0.05" length="0.05"/>
       </geometry>
     </collision>
   </link>
@@ -685,8 +760,8 @@
       xyz="0.041909 0 1.1614"
       rpy="0 0.5236 0" /> -->
     <origin
-      xyz="-0.22 0 1.07"
-      rpy="0 0.5236 3.14" />
+      xyz="0.25 0 1.05"
+      rpy="0 0.5236 0" />
     <parent
       link="base_link" />
     <child
@@ -714,7 +789,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 3.14" />
       <geometry>
         <mesh
           filename="package://cobot_description/meshes/head_Link.STL" />
@@ -728,7 +803,7 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 3.14" />
       <geometry>
         <mesh
           filename="package://cobot_description/meshes/head_Link.STL" />
@@ -739,8 +814,8 @@
     name="head_joint"
     type="fixed">
     <origin
-      xyz="-0.10013 0 1.1628"
-      rpy="0 0 3.1416" />
+      xyz="0.10013 0 1.1628"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -763,7 +838,7 @@
     name="display_joint"
     type="fixed">
     <origin
-      xyz="0.15 0 -0.1"
+      xyz="-0.15 0 -0.1"
       rpy="0 0 0" />
     <parent
       link="head_Link" />
@@ -791,7 +866,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.57 0 1.57" />
       <geometry>
         <mesh
           filename="package://cobot_description/meshes/head_camera.STL" />
@@ -805,7 +880,7 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.57 0 1.57" />
       <geometry>
         <mesh
           filename="package://cobot_description/meshes/head_camera.STL" />
@@ -816,8 +891,8 @@
     name="head_camera_joint"
     type="fixed">
     <origin
-      xyz="-0.033687 -0.0039804 0.18195"
-      rpy="0.066568 0 1.5708" />
+      xyz="0.05 0 0.14"
+      rpy="0 0 0" />
     <parent
       link="head_Link" />
     <child
@@ -825,6 +900,10 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+
+
+
 
     <!-- Transmissions for ROS Control -->
     <xacro:macro name="transmission_block" params="joint_name">
@@ -848,12 +927,28 @@
     <xacro:transmission_block joint_name="joint6"/>
     <xacro:transmission_block joint_name="joint7"/>
 
-    <!-- ros_control plugin -->
-    <!-- <gazebo>
+
+    <xacro:gazebo_laser frame_prefix="front_lidar" />
+    <xacro:gazebo_depth_camera frame_prefix="hand_camera" />
+    <xacro:gazebo_depth_camera frame_prefix="head_camera" />
+    <xacro:gazebo_rslidar frame_prefix="neck_lidar" />
+
+
+    <!-- parameters -->
+    <xacro:arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface" />
+
+    <!-- gripper -->
+    <xacro:dh_ag95_gripper
+        prefix=""
+        transmission_hw_interface="$(arg transmission_hw_interface)" parent="Link6">
+        <origin xyz="0 0 0.03" rpy="0 0 0.0" />
+    </xacro:dh_ag95_gripper>
+
+
+
+     <!-- <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/arm</robotNamespace>
-            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-            <legacyModeNS>true</legacyModeNS>
+            <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo> -->
 

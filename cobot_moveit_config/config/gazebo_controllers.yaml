@@ -8,13 +8,6 @@
       - joint5
       - joint6
       - joint7
-
-  dh_gripper:
-    action_ns: gripper_action
-    type: GripperCommand
-    default: True
-    joints:
-      - finger_joint
     gains:
       joint1:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
       joint2:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
@@ -23,4 +16,18 @@
       joint5:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
       joint6:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
       joint7:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  # dh_gripper:
+  #   action_ns: gripper_action
+  #   type: GripperCommand
+  #   default: True
+  #   joints:
+  #     - finger_joint
+  #   gains:
+  #     joint1:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint2:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint3:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint4:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint5:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint6:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+  #     joint7:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
 

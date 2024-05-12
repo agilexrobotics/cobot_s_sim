@@ -3,9 +3,11 @@ Panels:
     Help Height: 84
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /Global Options1
+        - /Image1
       Splitter Ratio: 0.5
-    Tree Height: 102
+    Tree Height: 94
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -104,6 +106,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          ag95_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ag95_body:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           arm_base:
             Alpha: 1
             Show Axes: false
@@ -148,47 +160,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_finger_tip_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_inner_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_finger_tip_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_inner_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_knuckle_link:
+          front_lidar:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -208,7 +180,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           neck_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_outer_knuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -229,11 +241,6 @@ Visualization Manager:
             Show Trail: false
             Value: true
           rr_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          tool_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -319,6 +326,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          ag95_base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ag95_body:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           arm_base:
             Alpha: 1
             Show Axes: false
@@ -363,47 +380,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          gripper_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_finger_tip_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_inner_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger1_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_finger_tip_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_inner_knuckle_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_finger2_knuckle_link:
+          front_lidar:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -423,7 +400,47 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_outer_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           neck_lidar:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_finger_pad:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_inner_knuckle:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_outer_knuckle:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -444,11 +461,6 @@ Visualization Manager:
             Show Trail: false
             Value: true
           rr_wheel_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          tool_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -477,7 +489,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /hand_cam/color/image_raw
+      Image Topic: /hand_camera/color/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -495,11 +507,39 @@ Visualization Manager:
         {}
       Queue Size: 100
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.03999999910593033
+      Style: Flat Squares
+      Topic: /scan
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_footprint
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -511,7 +551,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 3.7909204959869385
+      Distance: 4.84031343460083
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -519,22 +559,22 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
+        X: 0.9596036672592163
+        Y: 0.5578679442405701
         Z: 0
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.1553981453180313
+      Pitch: 0.21039806306362152
       Target Frame: base_footprint
-      Yaw: 1.1553983688354492
+      Yaw: 1.5504014492034912
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 986
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -545,9 +585,9 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000200000000000001f30000039efc0200000007fb000000100044006900730070006c006100790073010000003d000000f7000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000013a000001d20000017d00fffffffb0000000a0049006d0061006700650100000312000000c90000001600ffffff000000010000016a000003a5fc0200000001fb0000000a00560069006500770073000000003e000003a5000000a400ffffff0000053f0000039e00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001f300000380fc0200000007fb000000100044006900730070006c006100790073010000003d000000ef000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000132000001c30000017d00fffffffb0000000a0049006d00610067006501000002fb000000c20000001600ffffff000000010000016a000003a5fc0200000001fb0000000a00560069006500770073000000003e000003a5000000a400ffffff000004970000038000000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: true
-  Width: 1848
+  Width: 1680
   X: 72
   Y: 27
