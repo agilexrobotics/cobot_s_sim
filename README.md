@@ -59,3 +59,13 @@ unzip ranger_base.zip
 ```
 roslaunch cobot_moveit_config demo_gazebo.launch
 ```
+
+
+
+
+
+# 问题处理
+
+如模型在运动过程中出现崩溃现象，可以尝试修改以下参数；gazebo 中的物理参数，**迭代次数从50改为100或者更大**
+
+![](img/D33C9474-6A29-4691-8E64-565D9B2B9F46.png)
