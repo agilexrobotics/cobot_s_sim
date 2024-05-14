@@ -1,0 +1,5 @@
+<launch>
+    <node name="record_pose" type="record_pose" pkg="cobot_nav" output="screen">
+        <param name="file_name" value="$(find cobot_nav)/config/record_pose.yaml"/>
+    </node>
+</launch>

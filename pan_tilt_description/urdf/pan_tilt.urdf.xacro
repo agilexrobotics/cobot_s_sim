@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pan_tilt" description="iqr pan tilt">
+  <xacro:macro name="pan_tilt" params="parent *origin">
+    <xacro:property name="prefix" value="pan_tilt"/>
+    <xacro:property name="P_PI" value="3.1415926535897931"/>
+
+    <!-- <joint name="${prefix}_base_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_base_link"/>
+    </joint> -->
+
+    <link name="${prefix}_base_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+      <mass value="0.1"/>
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/base.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/base.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </collision>
+    </link>
+
+    <link name="${prefix}_yaw_link">
+    <inertial>
+      <origin
+        xyz="-0.013341 -0.0030001 0.14378"
+        rpy="0 0 0" />
+      <mass
+        value="0.10888" />
+      <inertia
+        ixx="0.00015548"
+        ixy="5.612E-11"
+        ixz="7.7393E-06"
+        iyy="6.2021E-05"
+        iyz="-3.4676E-10"
+        izz="0.00016861" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/yaw.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/yaw.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </collision>
+
+    </link>
+    <joint name="${prefix}_yaw_joint" type="revolute">
+      <origin xyz="0.0 0.0 0.023" rpy="0.0 0.0 0.0"/>
+      <parent link="${prefix}_base_link"/>
+      <child link="${prefix}_yaw_link"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${-P_PI/3}" upper="${P_PI/3}" effort="0.0" velocity="${P_PI/6}"/>
+      <dynamics damping="0" friction="100"/>
+          
+    </joint>
+
+    <link name="${prefix}_pitch_link">
+    <inertial>
+      <origin
+        xyz="-0.013341 -0.0030001 0.14378"
+        rpy="0 0 0" />
+      <mass
+        value="0.10888" />
+      <inertia
+        ixx="0.00015548"
+        ixy="5.612E-11"
+        ixz="7.7393E-06"
+        iyy="6.2021E-05"
+        iyz="-3.4676E-10"
+        izz="0.00016861" />
+    </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/pitch.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 -${P_PI/2}"/>
+        <geometry>
+          <mesh filename="package://pan_tilt_description/urdf/mesh/pitch.stl"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_pitch_joint" type="revolute">
+      <origin xyz="0.0 0.0 0.062" rpy="0.0 0.0 0.0"/>
+      <parent link="${prefix}_yaw_link"/>
+      <child link="${prefix}_pitch_link"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${-P_PI/3}" upper="${P_PI/3}" effort="0.0" velocity="${P_PI/6}"/>
+      <dynamics damping="0" friction="100"/>
+
+    </joint>
+
+    <link name="${prefix}_surface"/>
+    <joint name="${prefix}_surface_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.032" rpy="0 0 0"/>
+      <parent link="${prefix}_pitch_link"/>
+      <child link="${prefix}_surface"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

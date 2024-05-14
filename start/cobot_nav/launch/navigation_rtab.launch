@@ -1,0 +1,42 @@
+<?xml version="1"?>
+<launch>
+  <!--  ************** Navigation ***************  -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" clear_params="true" output="screen">
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/costmap_common_params.yaml" command="load" ns="global_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/local_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/global_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/teb_local_planner_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/move_base_params_global.yaml" command="load" />
+      <remap from="/cmd_vel" to="/four_wheel_steering_controller/cmd_vel"/>
+
+  </node>
+
+  <!-- <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find cobot_nav)/param/4wd/costmap_common_params.yaml" command="load" ns="global_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/4wd/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/4wd/local_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/4wd/global_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/4wd/base_local_planner_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/4wd/move_base_params.yaml" command="load" />
+      <remap from="/cmd_vel" to="/four_wheel_steering_controller/cmd_vel"/>
+
+  </node> -->
+
+
+  <!-- <include file="$(find cobot_nav)/launch/volecity_smoother.launch" /> 
+  <include file="$(find cobot_nav)/launch/ranger_mini_v2.launch" /> -->
+
+  <!--  **************** Visualisation ****************  -->
+  <node name="nav_rviz" pkg="rviz" type="rviz" args="-d $(find cobot_nav)/rviz/slam.rviz" />
+</launch>

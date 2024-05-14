@@ -1,0 +1,5 @@
+<launch>
+    <node name="move_grab" type="move_grab.py" pkg="cobot_arm" output="screen">
+        <rosparam command="load" file="$(find cobot_nav)/config/record_pose.yaml"/>
+    </node>
+</launch>

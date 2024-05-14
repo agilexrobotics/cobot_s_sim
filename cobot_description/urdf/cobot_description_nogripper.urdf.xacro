@@ -11,6 +11,7 @@
 
   <xacro:include filename="$(find ranger_mini_v2_gazebo)/xacro/ranger_mini_gazebo_b.xacro"/>
   <xacro:include filename="$(find cobot_description)/urdf/gazebo.gazebo"/>
+  <xacro:include filename="$(find pan_tilt_description)/urdf/pan_tilt_st.urdf.xacro"/>
 
   <link
     name="base_footprint">
@@ -583,67 +584,9 @@
       velocity="1" />
 	  <dynamics damping="50" friction="1"/>
   </joint>
-  <!-- <link
-    name="tool_link">
-    <inertial>
-      <origin
-        xyz="-1.4586E-14 1.6875E-14 0.0086479"
-        rpy="0 0 0" />
-      <mass
-        value="0.88542" />
-      <inertia
-        ixx="0.00049603"
-        ixy="1.3553E-20"
-        ixz="-6.8101E-19"
-        iyy="0.00049603"
-        iyz="4.0658E-19"
-        izz="0.00097955" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/tool_link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.77647 0.77647 0.81961 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/tool_link.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint name="tool_joint" type="fixed">
-    <origin xyz="0 0 0.03103" rpy="0 0 -2.618" />
-    <parent link="Link6" />
-    <child link="tool_link" />
-  </joint> -->
-  <!-- <joint
-    name="hand_joint"
-    type="fixed">
-    <origin
-      xyz="0 0 0.018"
-      rpy="0 0 2.3761" />
-    <parent
-      link="tool_link" />
-    <child
-      link="dh_robotics_ag95_base_link" />
-  </joint> -->
-    <!-- <xacro:dh_robotics_ag95_gripper prefix="" parent="tool_link" >
-        <origin xyz="0 0 0.04" rpy="0 0 0"/>
-    </xacro:dh_robotics_ag95_gripper> -->
+
   <link
-    name="hand_camera">
+    name="hand_cam">
     <inertial>
       <origin
         xyz="0.0009804 0.025556 -0.036977"
@@ -665,7 +608,7 @@
       <geometry>
         <!-- <mesh
           filename="package://cobot_description/meshes/hand_camera.STL" /> -->
-          <box size="0.05 0.02 0.02"/>
+          <box size="0.02 0.05 0.02"/>
       </geometry>
       <material
         name="">
@@ -680,7 +623,7 @@
       <geometry>
         <!-- <mesh
           filename="package://cobot_description/meshes/hand_camera.STL" /> -->
-        <box size="0.05 0.02 0.02"/>
+        <box size="0.02 0.05 0.02"/>
       </geometry>
     </collision>
   </link>
@@ -702,12 +645,12 @@
     name="hand_camera_joint"
     type="fixed">
     <origin
-      xyz="0 0.05 0.0"
+      xyz="0 0.07 0.0"
       rpy="-1.57 -1.57 0" />
     <parent
       link="Link6" />
     <child
-      link="hand_camera" />
+      link="hand_cam" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -770,46 +713,6 @@
       xyz="0 0 0" />
   </joint>
 
-  <link
-    name="head_Link">
-    <inertial>
-      <origin
-        xyz="-0.013341 -0.0030001 0.14378"
-        rpy="0 0 0" />
-      <mass
-        value="0.10888" />
-      <inertia
-        ixx="0.00015548"
-        ixy="5.612E-11"
-        ixz="7.7393E-06"
-        iyy="6.2021E-05"
-        iyz="-3.4676E-10"
-        izz="0.00016861" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 3.14" />
-      <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/head_Link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 3.14" />
-      <geometry>
-        <mesh
-          filename="package://cobot_description/meshes/head_Link.STL" />
-      </geometry>
-    </collision>
-  </link>
   <joint
     name="head_joint"
     type="fixed">
@@ -819,10 +722,11 @@
     <parent
       link="base_link" />
     <child
-      link="head_Link" />
+      link="pan_tilt_base_link" />
     <axis
       xyz="0 0 0" />
   </joint>
+
   <link
     name="display_Link">
     <collision>
@@ -841,14 +745,14 @@
       xyz="-0.15 0 -0.1"
       rpy="0 0 0" />
     <parent
-      link="head_Link" />
+      link="pan_tilt_base_link" />
     <child
       link="display_Link" />
     <axis
       xyz="0 0 0" />
   </joint>
   <link
-    name="head_camera">
+    name="cam2">
     <inertial>
       <origin
         xyz="0.027537 -0.14823 -1.1256"
@@ -888,19 +792,78 @@
     </collision>
   </link>
   <joint
-    name="head_camera_joint"
+    name="cam2_joint"
     type="fixed">
     <origin
       xyz="0.05 0 0.14"
       rpy="0 0 0" />
     <parent
-      link="head_Link" />
+      link="pan_tilt_base_link" />
     <child
-      link="head_camera" />
+      link="cam2" />
     <axis
       xyz="0 0 0" />
   </joint>
 
+    <link name='imu_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0.0 0 0" rpy="0 0 0"/>
+            <inertia
+                ixx="1e-7" ixy="0" ixz="0"
+                iyy="1e-7" iyz="0"
+                izz="1e-7"
+            />
+        </inertial>
+        <visual name='imu_visual'>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+            <material name='imu_material'>
+                <ambient>0.1 0.1 0.1 1</ambient>
+                <diffuse>0.1 0.1 0.2 1</diffuse>
+                <specular>0 0 0 0</specular>
+                <emissive>0 0 0 1</emissive>
+            </material>
+        </visual>
+        <collision name='imu_collision'>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+        <joint type="fixed" name="imu_joint">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <child link="imu_link"/>
+            <parent link="base_link"/>
+        </joint>
+
+
+
+        <transmission name="pan_tilt_pitch_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="pan_tilt_pitch_joint">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="pan_tilt_pitch_joint_motor1">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="pan_tilt_yaw_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="pan_tilt_yaw_joint">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="pan_tilt_yaw_joint_motor1">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
 
 
 
@@ -929,9 +892,10 @@
 
 
     <xacro:gazebo_laser frame_prefix="front_lidar" />
-    <xacro:gazebo_depth_camera frame_prefix="hand_camera" />
-    <xacro:gazebo_depth_camera frame_prefix="head_camera" />
+    <xacro:gazebo_depth_camera frame_prefix="hand_cam" />
+    <xacro:gazebo_depth_camera frame_prefix="cam2" />
     <xacro:gazebo_rslidar frame_prefix="neck_lidar" />
+    <xacro:gazebo_imu frame_prefix="imu" />
 
 
     <!-- parameters -->

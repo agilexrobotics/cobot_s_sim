@@ -1,0 +1,62 @@
+<?xml version="1"?>
+<!-- 
+  Simulate a carlike robot with the teb_local_planner in stage:
+  - stage
+  - map_server
+  - move_base
+  - static map
+  - amcl
+  - rviz view
+ -->
+<launch>
+  <!--  ************** Navigation ***************  -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" clear_params="true" output="screen">
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/costmap_common_params.yaml" command="load" ns="global_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/local_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/global_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/teb_local_planner_params.yaml" command="load" />
+
+    <rosparam file="$(find cobot_nav)/param/ranger_mini/move_base_params_global.yaml" command="load" />
+  </node>
+
+  <!-- Depth Image to Laser Scan Node -->
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" args="">
+    <remap from="scan"        to="/camera_scan"/>
+
+    <remap from="image"       to="/camera/aligned_depth_to_color/image_raw"/> <!-- change here for your camera depth topic name. Default: "/camera/depth/image_raw" -->
+
+    <remap from="camera_info" to="/camera/color/camera_info"/> 
+    <!-- the remap for camera_info by default uses the same path as the one given to the image topic. Default: "<path_to_image_topic>/camera_info>" -->
+
+    <!-- PARAMETERS: -->
+    <!-- These are the default values. --> 
+    <param name="scan_height"     type="int"    value="200"/> <!-- default: 1 pixel. Number of pixel rows used to generate laser scan. -->
+    <param name="scan_time"       type="double" value="0.033"/> <!-- default:0.033, 30 FPS . Time between scans. -->
+    <param name="range_min"       type="double" value="0.15"/> <!--default:0.45m. Ranges less than this are considered -Inf. -->
+    <param name="range_max"       type="double" value="3.0"/> <!--default: 10m. Ranges less than this are considered +Inf. -->
+    <param name="output_frame_id" type="str"    value="camera_depth_frame"/> <!--default: camera_depth_frame. Frame id of the laser scan. -->
+	
+  </node>
+
+	<!--  ****** Maps *****  -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cobot_nav)/maps/map.yaml" output="screen">
+    <param name="frame_id" value="map"/>
+  </node>
+
+	<node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find cobot_nav)/param/amcl_params.yaml" command="load" />
+    <param name="initial_pose_x"            value="0"/>
+    <param name="initial_pose_y"            value="0"/>
+		<param name="initial_pose_a"            value="0"/>
+	</node>
+
+  <!--  **************** Visualisation ****************  -->
+  <node name="car_rviz" pkg="rviz" type="rviz" args="-d $(find cobot_nav)/rviz/slam.rviz" />
+  <!-- <include file="$(find cobot_nav)/launch/volecity_smoother.launch" />-->
+  <include file="$(find ranger_bringup)/launch/ranger_mini_v2.launch" /> 
+</launch>

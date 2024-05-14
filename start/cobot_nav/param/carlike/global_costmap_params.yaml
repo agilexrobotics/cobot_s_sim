@@ -1,0 +1,17 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link #base_link
+  update_frequency: 5.0
+  publish_frequency: 0.5
+  static_map: true #false
+  rolling_window: false #true
+
+  transform_tolerance: 0.50
+  plugins:
+    - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+    - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+
+
+
+

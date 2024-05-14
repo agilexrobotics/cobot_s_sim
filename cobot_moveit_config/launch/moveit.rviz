@@ -135,6 +135,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          cam2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           display_Link:
             Alpha: 1
             Show Axes: false
@@ -165,7 +169,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          hand_camera:
+          hand_cam:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -175,7 +179,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          head_camera:
+          imu_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -355,6 +359,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          cam2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           display_Link:
             Alpha: 1
             Show Axes: false
@@ -385,7 +393,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          hand_camera:
+          hand_cam:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -395,7 +403,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          head_camera:
+          imu_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -489,7 +497,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /hand_camera/color/image_raw
+      Image Topic: /hand_cam/color/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -551,7 +559,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 4.84031343460083
+      Distance: 2.645322322845459
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -567,9 +575,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.21039806306362152
+      Pitch: 0.545397937297821
       Target Frame: base_footprint
-      Yaw: 1.5504014492034912
+      Yaw: 3.005406141281128
     Saved: ~
 Window Geometry:
   Displays:
@@ -589,5 +597,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1680
-  X: 72
+  X: 0
   Y: 27

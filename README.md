@@ -60,7 +60,102 @@ unzip ranger_base.zip
 roslaunch cobot_moveit_config demo_gazebo.launch
 ```
 
+# 控制夹爪
 
+控制夹爪闭合
+
+```
+rostopic pub /gripper_controller/gripper_cmd/goal control_msgs/GripperCommandActionGoal "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+goal_id:
+  stamp:
+    secs: 0
+    nsecs: 0
+  id: ''
+goal:
+  command:
+    position: 10.0
+    max_effort: 10.0" 
+
+```
+
+控制夹爪张开
+
+```
+rostopic pub /gripper_controller/gripper_cmd/goal control_msgs/GripperCommandActionGoal "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+goal_id:
+  stamp:
+    secs: 0
+    nsecs: 0
+  id: ''
+goal:
+  command:
+    position: 0.0
+    max_effort: 10.0" 
+```
+
+# 控制云台
+
+控制相机上下转
+
+```
+rostopic pub /pan_tilt_pitch_joint_controller/command std_msgs/Float64 "data: 0.5" 
+```
+
+控制相机左右转
+
+```
+rostopic pub /pan_tilt_yaw_joint_controller/command std_msgs/Float64 "data: 0.3" 
+```
+
+# SLAM仿真
+
+环境安装
+
+```
+sudo apt-get install ros-noetic-rtabmap-* ros-noetic-navigation ros-noetic-teb-local-planner ros-noetic-robot-pose-ekf 
+```
+
+启动仿真
+
+```
+roslaunch cobot_moveit_config demo_gazebo.launch
+```
+
+启动激光里程
+
+```
+roslaunch cobot_nav open_lidar.launch 
+```
+
+启动rtabmap建图模式
+
+```
+roslaunch cobot_nav rtab_mapping.launch
+```
+
+控制车子移动并建图，建图完成之后，直接终止程序，地图会自动保存
+
+启动rtabmap定位模式
+
+```
+roslaunch cobot_nav rtab_mapping.launch localization:=true
+```
+
+启动导航
+
+```
+roslaunch cobot_nav navigation_rtab.launch 
+```
 
 
 

@@ -31,16 +31,13 @@
   <!-- Load ROS controllers -->
   <include file="$(dirname)/ros_controllers.launch"/>
 
-
-
-
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find ranger_mini_control)/config/controller_v2.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager"
 		type="spawner" output="screen" 
-		args="four_wheel_steering_controller arm_joint_controller gripper_controller">
+		args="four_wheel_steering_controller arm_joint_controller gripper_controller pan_tilt_yaw_joint_controller pan_tilt_pitch_joint_controller">
   </node>
 
   <!-- convert joint states to TF transforms for rviz, etc -->

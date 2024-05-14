@@ -1,0 +1,21 @@
+<?xml version='1'?>
+<launch>
+  <!-- <param name="robot_description" command="$(find xacro)/xacro $(find cobot_description)/urdf/cobot_description.urdf.xacro" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+     
+  <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+    <param name="laser_scan_topic" value="/scan"/>              
+    <param name="odom_topic" value="/scan/odom" />              
+    
+    <param name="base_frame_id" value="base_footprint"/>       
+    <param name="odom_frame_id" value="/scan/odom" />                
+    <param name="publish_tf" value="false" />                   
+    <param name="init_pose_from_topic" value="" />             
+    <param name="freq" value="10.0"/>                          
+    <param name="verbose" value="true" />                     
+  </node>
+
+  <!-- <include file='$(find cobot_nav)/launch/ekf_odom.launch' /> -->
+
+</launch>

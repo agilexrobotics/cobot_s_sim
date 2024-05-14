@@ -1,0 +1,7 @@
+<library path="lib/libagilex_nav_control_rviz_plugin">
+    <class name="agilex_nav_control_rviz_plugin/AgilexNavigationPanel"
+           type="agilex_nav_control_rviz_plugin::AgilexNavigationPanel"
+           base_class_type="rviz::Panel">
+        <description>A panel widget allowing navigation and control.</description>
+    </class>
+</library>
