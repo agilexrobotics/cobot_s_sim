@@ -69,7 +69,7 @@
       <collision>
         <origin xyz="-0.013 0.0 0.0"/>
         <geometry>
-          <box size="0.026 0.103 0.039"/>
+          <box size="0.001 0.001 0.001"/>
         </geometry>
         <material name="grey"/>
       </collision>

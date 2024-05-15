@@ -6,9 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
+        - /RobotModel1
+        - /RobotModel1/Links1
         - /TF1/Frames1
-      Splitter Ratio: 0.5
+      Splitter Ratio: 0.5794117450714111
     Tree Height: 597
   - Class: rviz/Selection
     Name: Selection
@@ -55,10 +56,10 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Class: rviz/RobotModel
-      Collision Enabled: false
+      Collision Enabled: true
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -67,52 +68,52 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         Link7:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         ag95_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         ag95_body:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_footprint:
           Alpha: 1
           Show Axes: false
@@ -121,205 +122,173 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         box:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: false
+        cam2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
           Value: true
+        camera_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        camera_body:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_visor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
         display_Link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         fl_steering_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         fl_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         fr_steering_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         fr_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         front_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        hand_camera:
+          Value: false
+        hand_cam:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        head_Link:
+          Value: false
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        head_camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+          Value: false
         left_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         left_finger_pad:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         left_inner_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         left_outer_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         neck_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
+        pan_tilt_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        pan_tilt_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        pan_tilt_surface:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pan_tilt_yaw_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
         right_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         right_finger_pad:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         right_inner_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         right_outer_knuckle:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         rl_steering_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         rl_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         rr_steering_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         rr_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
-      Visual Enabled: true
+      Visual Enabled: false
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        Link1:
-          Value: false
-        Link2:
-          Value: false
-        Link3:
-          Value: false
-        Link4:
-          Value: false
-        Link5:
-          Value: false
-        Link6:
-          Value: false
-        Link7:
-          Value: false
-        ag95_base_link:
-          Value: false
-        ag95_body:
-          Value: false
-        arm_base:
-          Value: false
-        base_footprint:
-          Value: false
-        base_link:
-          Value: false
-        box:
-          Value: false
-        display_Link:
-          Value: false
-        fl_steering_wheel_link:
-          Value: false
-        fl_wheel_link:
-          Value: false
-        fr_steering_wheel_link:
-          Value: false
-        fr_wheel_link:
-          Value: false
-        front_lidar:
-          Value: false
-        hand_camera:
-          Value: true
-        head_Link:
-          Value: false
-        head_camera:
-          Value: true
-        left_finger:
-          Value: false
-        left_finger_pad:
-          Value: false
-        left_inner_knuckle:
-          Value: false
-        left_outer_knuckle:
-          Value: false
-        neck_lidar:
-          Value: false
-        right_finger:
-          Value: false
-        right_finger_pad:
-          Value: false
-        right_inner_knuckle:
-          Value: false
-        right_outer_knuckle:
-          Value: false
-        rl_steering_wheel_link:
-          Value: false
-        rl_wheel_link:
-          Value: false
-        rr_steering_wheel_link:
-          Value: false
-        rr_wheel_link:
-          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -327,57 +296,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_footprint:
-          base_link:
-            arm_base:
-              Link7:
-                Link1:
-                  Link2:
-                    Link3:
-                      Link4:
-                        Link5:
-                          Link6:
-                            ag95_base_link:
-                              ag95_body:
-                                left_inner_knuckle:
-                                  {}
-                                left_outer_knuckle:
-                                  left_finger:
-                                    left_finger_pad:
-                                      {}
-                                right_inner_knuckle:
-                                  {}
-                                right_outer_knuckle:
-                                  right_finger:
-                                    right_finger_pad:
-                                      {}
-                            hand_camera:
-                              {}
-            box:
-              {}
-            fl_steering_wheel_link:
-              fl_wheel_link:
-                {}
-            fr_steering_wheel_link:
-              fr_wheel_link:
-                {}
-            front_lidar:
-              {}
-            head_Link:
-              display_Link:
-                {}
-              head_camera:
-                {}
-            neck_lidar:
-              {}
-            rl_steering_wheel_link:
-              rl_wheel_link:
-                {}
-            rr_steering_wheel_link:
-              rr_wheel_link:
-                {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -406,7 +327,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 2.785706043243408
+      Distance: 1.8983805179595947
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -414,17 +335,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.07331737875938416
-        Y: -0.42184901237487793
-        Z: 3.5762786865234375e-07
+        X: 0.0413607656955719
+        Y: -1.0125981569290161
+        Z: -1.1920928955078125e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3053983747959137
+      Pitch: 0.6703980565071106
       Target Frame: <Fixed Frame>
-      Yaw: 0.14039677381515503
+      Yaw: 1.2853960990905762
     Saved: ~
 Window Geometry:
   Displays:
@@ -442,5 +363,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1680
-  X: 72
+  X: 0
   Y: 27

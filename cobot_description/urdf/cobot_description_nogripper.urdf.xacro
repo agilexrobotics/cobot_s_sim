@@ -795,10 +795,10 @@
     name="cam2_joint"
     type="fixed">
     <origin
-      xyz="0.05 0 0.14"
+      xyz="0.06 -0.01 0.04"
       rpy="0 0 0" />
     <parent
-      link="pan_tilt_base_link" />
+      link="pan_tilt_pitch_link" />
     <child
       link="cam2" />
     <axis
