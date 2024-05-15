@@ -97,7 +97,7 @@
 
   </group>
 
-  <node name="rtab_map_rviz" pkg="rviz" type="rviz" args="-d $(find cobot_nav)/rviz/rtab_map.rviz" />
+  <node name="nav_rviz" pkg="rviz" type="rviz" args="-d $(find cobot_nav)/rviz/slam.rviz" />
 
 </launch>
 
