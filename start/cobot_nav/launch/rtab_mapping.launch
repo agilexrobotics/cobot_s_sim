@@ -98,6 +98,5 @@
   </group>
 
   <node name="nav_rviz" pkg="rviz" type="rviz" args="-d $(find cobot_nav)/rviz/slam.rviz" />
-
 </launch>
 

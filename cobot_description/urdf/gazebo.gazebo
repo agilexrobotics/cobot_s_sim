@@ -36,7 +36,7 @@
           </gazebo>
     </xacro:macro>
 
-    <xacro:macro name="gazebo_depth_camera" params="frame_prefix">
+    <xacro:macro name="gazebo_depth_camera" params="frame_prefix ponits_frame">
         <gazebo reference="${frame_prefix}">
           <sensor name="sensor_camera" type="depth">
             <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
@@ -68,7 +68,7 @@
               <depthImageTopicName>/${frame_prefix}/depth/image_raw</depthImageTopicName>
               <depthImageCameraInfoTopicName>/${frame_prefix}/depth/camera_info</depthImageCameraInfoTopicName>
               <pointCloudTopicName>/${frame_prefix}/depth/points</pointCloudTopicName>
-              <frameName>${frame_prefix}</frameName>
+              <frameName>${ponits_frame}</frameName>
               <cameraname>${frame_prefix}</cameraname>
               
               <pointCloudCutoff>0.5</pointCloudCutoff>
@@ -151,5 +151,24 @@
         </sensor>
       </gazebo>
   </xacro:macro>
+
+  <xacro:macro name="pan_titl_properties" params="reference">
+      <gazebo reference="${reference}">
+        <kp>1000000.0</kp>
+        <kd>1.0</kd>
+        <mu1>1.16</mu1>
+        <mu2>1.16</mu2>
+        <maxVel>0.0</maxVel>
+        <minDepth>0.003</minDepth>
+      </gazebo>
+    </xacro:macro>
+
+
+    <xacro:macro name="pan_titl_joint_properties" params="reference">
+      <gazebo reference="${reference}">
+        <implicitSpringDamper>true</implicitSpringDamper>
+      </gazebo>
+    </xacro:macro>
+
 
 </robot>

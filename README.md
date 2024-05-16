@@ -20,12 +20,6 @@ controller
 sudo apt-get install ros-noetic-gazebo-ros ros-noetic-gazebo-ros-control ros-noetic-gazebo-ros-pkgs ros-noetic-control-* ros-noetic-velodyne* ros-noetic-roboticsgroup-upatras-gazebo-plugins ros-noetic-robotis-manipulator ros-noetic-effort-controllers ros-noetic-joint-trajectory-action ros-noetic-joint-state-controller ros-noetic-position-controllers ros-noetic-effort-controllers ros-noetic-gripper-action-controller ros-noetic-joint-trajectory-controller
 ```
 
-slam 环境安装
-
-```
-sudo apt-get install ros-noetic-rtabmap-* ros-noetic-navigation ros-noetic-teb-local-planner ros-noetic-robot-pose-ekf ros-noetic-locomotor-msgs
-```
-
 创建工作空间
 
 ```
@@ -125,6 +119,12 @@ rostopic pub /pan_tilt_yaw_joint_controller/command std_msgs/Float64 "data: 0.3"
 
 # SLAM仿真
 
+环境安装
+
+```
+sudo apt-get install ros-noetic-rtabmap-* ros-noetic-navigation ros-noetic-teb-local-planner ros-noetic-robot-pose-ekf 
+```
+
 启动仿真
 
 ```
@@ -163,4 +163,4 @@ roslaunch cobot_nav navigation_rtab.launch
 
 如模型在运动过程中出现崩溃现象，可以尝试修改以下参数；gazebo 中的物理参数，**迭代次数从50改为100或者更大**
 
-![](./img/D33C9474-6A29-4691-8E64-565D9B2B9F46.png)
+![](img/D33C9474-6A29-4691-8E64-565D9B2B9F46.png)

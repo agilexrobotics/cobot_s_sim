@@ -224,8 +224,8 @@
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-1.9"
-      upper="1.9"
+      lower="-3.49"
+      upper="0.52"
       effort="300"
       velocity="3.14" />
 	  <dynamics damping="50" friction="1"/>
@@ -627,19 +627,6 @@
       </geometry>
     </collision>
   </link>
-  <!-- <joint
-    name="hand_camera_joint"
-    type="fixed">
-    <origin
-      xyz="-0.05 0.05 0 "
-      rpy="0 -1.57 2.618" />
-    <parent
-      link="tool_link" />
-    <child
-      link="hand_camera" />
-    <axis
-      xyz="0 0 0" />
-  </joint> -->
 
   <joint
     name="hand_camera_joint"
@@ -654,6 +641,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
 
   <link
     name="neck_lidar">
@@ -805,6 +793,17 @@
       xyz="0 0 0" />
   </joint>
 
+  <link name="depth_link">
+    
+  </link>
+
+  <joint name="depth_to_camera_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 -1.57"/>
+    <parent link="cam2"/>
+    <child link="depth_link"/>
+  </joint>
+
+
     <link name='imu_link'>
         <pose>0 0 0 0 0 0</pose>
         <inertial>
@@ -892,10 +891,16 @@
 
 
     <xacro:gazebo_laser frame_prefix="front_lidar" />
-    <xacro:gazebo_depth_camera frame_prefix="hand_cam" />
-    <xacro:gazebo_depth_camera frame_prefix="cam2" />
+    <xacro:gazebo_depth_camera frame_prefix="hand_cam" ponits_frame="hand_cam"/>
+    <xacro:gazebo_depth_camera frame_prefix="cam2" ponits_frame="depth_link"/>
     <xacro:gazebo_rslidar frame_prefix="neck_lidar" />
     <xacro:gazebo_imu frame_prefix="imu" />
+
+    <xacro:pan_titl_properties reference="pan_tilt_pitch_link"/>
+    <xacro:pan_titl_properties reference="pan_tilt_yaw_link"/>
+
+    <xacro:pan_titl_joint_properties reference="pan_tilt_pitch_joint"/>
+    <xacro:pan_titl_joint_properties reference="pan_tilt_yaw_joint"/>
 
 
     <!-- parameters -->

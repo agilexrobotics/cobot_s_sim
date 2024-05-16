@@ -37,7 +37,8 @@
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager"
 		type="spawner" output="screen" 
-		args="four_wheel_steering_controller arm_joint_controller gripper_controller pan_tilt_yaw_joint_controller pan_tilt_pitch_joint_controller">
+		args="four_wheel_steering_controller arm_joint_controller gripper_controller 
+          pan_titl_controller">
   </node>
 
   <!-- convert joint states to TF transforms for rviz, etc -->

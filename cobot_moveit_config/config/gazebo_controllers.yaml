@@ -16,35 +16,21 @@
       joint5:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
       joint6:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
       joint7:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  # dh_gripper:
-  #   action_ns: gripper_action
-  #   type: GripperCommand
-  #   default: True
-  #   joints:
-  #     - finger_joint
-  #   gains:
-  #     joint1:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint2:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint3:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint4:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint5:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint6:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-  #     joint7:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
 
-  pan_tilt_pitch_joint_controller:
-    type: position_controllers/JointPositionController
-    joint: pan_tilt_pitch_joint
-    pid:
-      p: 1000.0
-      i: 0.0
-      d: 0.0
-      i_clamp: 0.0
 
-  pan_tilt_yaw_joint_controller:
-    type: position_controllers/JointPositionController
-    joint: pan_tilt_yaw_joint
-    pid:
-      p: 1000.0
-      i: 0.0
-      d: 0.0
-      i_clamp: 0.0
+  pan_titl_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - pan_tilt_yaw_joint
+      - pan_tilt_pitch_joint
+    gains:
+      pan_tilt_yaw_joint:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      pan_tilt_pitch_joint:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
