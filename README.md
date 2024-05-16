@@ -105,17 +105,9 @@ goal:
 
 # 控制云台
 
-控制相机上下转
+控制方式和机械臂类似，可以通过moveit的API发送目标点，控制云台运动
 
-```
-rostopic pub /pan_tilt_pitch_joint_controller/command std_msgs/Float64 "data: 0.5" 
-```
-
-控制相机左右转
-
-```
-rostopic pub /pan_tilt_yaw_joint_controller/command std_msgs/Float64 "data: 0.3" 
-```
+![](./img/pan_titl-2024-05-16_17.28.48.gif)
 
 # SLAM仿真
 
@@ -156,6 +148,22 @@ roslaunch cobot_nav rtab_mapping.launch localization:=true
 ```
 roslaunch cobot_nav navigation_rtab.launch 
 ```
+
+# 控制接口
+
+夹爪
+
+```
+/gripper_controller/gripper_cmd/goal
+```
+
+底盘
+
+```
+/four_wheel_steering_controller/cmd_vel
+```
+
+云台的控制方式和机械臂类似，需要通过moveit API 接口发送目标点
 
 
 
