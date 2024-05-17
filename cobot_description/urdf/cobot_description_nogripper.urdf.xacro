@@ -642,6 +642,15 @@
       xyz="0 0 0" />
   </joint>
 
+  <link name="hand_camera_depth">
+    
+  </link>
+
+  <joint name="hand_camera_depth_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 -1.57"/>
+    <parent link="hand_cam"/>
+    <child link="hand_camera_depth"/>
+  </joint>
 
   <link
     name="neck_lidar">
@@ -891,7 +900,7 @@
 
 
     <xacro:gazebo_laser frame_prefix="front_lidar" />
-    <xacro:gazebo_depth_camera frame_prefix="hand_cam" ponits_frame="hand_cam"/>
+    <xacro:gazebo_depth_camera frame_prefix="hand_cam" ponits_frame="hand_camera_depth"/>
     <xacro:gazebo_depth_camera frame_prefix="cam2" ponits_frame="depth_link"/>
     <xacro:gazebo_rslidar frame_prefix="neck_lidar" />
     <xacro:gazebo_imu frame_prefix="imu" />
